@@ -12,7 +12,7 @@ This webpage application will allow users to search a database for doctors in th
 
 Behavior | Input | Output
 --- | --- | ---
-
+**User enters value that is not within the parameters of the search will get error message** | User enters '45' in doctor search field | "Please enter a correct name" is displayed
 
 ## Setup/Installation Requirements
 
