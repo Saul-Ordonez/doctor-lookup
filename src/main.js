@@ -7,24 +7,35 @@ import './styles.css';
 // API Framework
 
 
+//this API call works fine
 
-(async () => {
-  let betterDoctorAPI = new BetterDoctorAPI();
-  const response = await betterDoctorAPI.getBetterDoctorAPI();
-  getElements(response);
-})();
+// (async () => {
+//   let betterDoctorAPI = new BetterDoctorAPI();
+//   const response = await betterDoctorAPI.getBetterDoctorAPI(doctorName);
+//   getElements(response);
+// })();
+//
+// const getElements = function(response) {
+//   $('#firstName').text(response.data[0].profile.first_name);
+// };
 
-const getElements = function(response) {
-  console.log(response.data[0].profile.slug);
-  $('#firstName').text(response.data[0].profile.first_name);
-};
-// $(document).ready(function() {
-  //   $('#submitForm').submit(function(event) {
-    //     event.preventDefault();
+$(document).ready(function() {
+    $('#submitForm').submit(function(event) {
+      const doctorName = $('#nameInput').val();
+        event.preventDefault();
 
-    // const doctorName = $('#nameInput').val();
+        (async () => {
+          let betterDoctorAPI = new BetterDoctorAPI();
+          let response = await betterDoctorAPI.getBetterDoctorAPI(doctorName);
+          getElements(response);
+        })();
 
-    // const getElements = function(response) {
+    const getElements = function(response) {
+      $('#outputInfo').text(response.data[0].profile.first_name);
+
+
+
+
       //   let length = response.data.length;
       //   $('#outputInfo').text(" ");
       //
@@ -38,13 +49,8 @@ const getElements = function(response) {
         //     document.getElementById("#outputInfo").appendChild(node);
         //   }
         //
-        // };
+        };
 
-        (async () => {
-          let betterDoctorAPI = new BetterDoctorAPI();
-          let response = await betterDoctorAPI.getBetterDoctorAPI();
-          getElements(response);
-        })();
 
-        //   });
-        // });
+          });
+        });
