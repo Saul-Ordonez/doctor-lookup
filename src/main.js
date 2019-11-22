@@ -7,16 +7,24 @@ import './styles.css';
 // API Framework
 
 $(document).ready(function() {
-  $('#nameSearch').submit(function(event) {
+  $('#sumbitForm').submit(function(event) {
     event.preventDefault();
 
-    const nameInput = $('#nameInput').val();
+    $('#outputInfo').text(`${response.data[0].profile.first_name}`);
+    const getElements = function(response) {
+      let listLength = response.data.length;
+      console.log(listLength);
+    }
+
+      const doctorName = $('#nameInput').val();
+
+
+      (async () => {
+        let doctorNameSearch = new DoctorNameSearch();
+        let response = await doctorNameSearch.getDoctorNameSearch(doctorName);
+        getElements(response);
+      })();
+
+
+    });
   });
-});
-
-(async () => {
-  let doctorNameSearch = new DoctorNameSearch();
-  let jsonifiedResponse = await doctorNameSearch.getDoctorNameSearch();
-
-  getElements(jsonifiedResponse);
-})();
