@@ -9,22 +9,29 @@ import './styles.css';
 $(document).ready(function() {
   $('#sumbitForm').submit(function(event) {
     event.preventDefault();
+    const doctorName = $('#nameInput').val();
 
-    $('#outputInfo').text(`${response.data[0].profile.first_name}`);
     const getElements = function(response) {
-      let listLength = response.data.length;
-      console.log(listLength);
-    }
+      let length = response.data.length;
+      $('#outputInfo').text(" ");
 
-      const doctorName = $('#nameInput').val();
+      //https://www.w3schools.com/jsref/met_document_createelement.asp
+      //used for creating node
 
+      for(let i = 0;i < length; i++){
+        let node = document.createElement("LI");
+        let textnode = document.createTextNode(`Name: ${response.data[i].profile.first_name}`);
+        node.appendChild(textnode);
+        document.getElementById("#outputInfo").appendChild(node);
+      }
 
-      (async () => {
-        let doctorNameSearch = new DoctorNameSearch();
-        let response = await doctorNameSearch.getDoctorNameSearch(doctorName);
-        getElements(response);
-      })();
+    };
 
+    (async () => {
+      let doctorNameSearch = new DoctorNameSearch();
+      let response = await doctorNameSearch.getDoctorNameSearch(doctorName);
+      getElements(response);
+    })();
 
-    });
   });
+});
