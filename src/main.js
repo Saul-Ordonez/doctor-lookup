@@ -7,8 +7,8 @@ import './styles.css';
 // API Framework
 
 $(document).ready(function() {
-  $('#sumbitForm').submit(function(event) {
-    event.preventDefault();
+  $('#submitForm').click(function() {
+
     const doctorName = $('#nameInput').val();
 
     const getElements = function(response) {
@@ -18,7 +18,7 @@ $(document).ready(function() {
       //https://www.w3schools.com/jsref/met_document_createelement.asp
       //used for creating node
 
-      for(let i = 0;i < length; i++){
+      for(i = 0; i < length; i++){
         let node = document.createElement("LI");
         let textnode = document.createTextNode(`Name: ${response.data[i].profile.first_name}`);
         node.appendChild(textnode);
