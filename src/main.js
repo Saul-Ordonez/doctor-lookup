@@ -22,7 +22,7 @@ $(document).ready(function() {
 
       for(let i = 0;i < dataLength; i++){
         let node = document.createElement("LI");
-        let textnode = document.createTextNode(`Name: ${response.data[i].profile.first_name} ${response.data[i].profile.last_name} Phone: ${response.data[i].practices[0].phones[0].number} Address: ${response.data[i].practices[0].visit_address.state}  City: ${response.data[i].practices[0].visit_address.city} Street: ${response.data[i].practices[0].visit_address.street} Zip: ${response.data[i].practices[0].visit_address.zip} Accepting new Patents: ${response.data[i].practices[0].accepts_new_patients}`);
+        let textnode = document.createTextNode(`Name: ${response.data[i].profile.first_name} ${response.data[i].profile.last_name}, ${response.data[0].profile.title} Phone: ${response.data[i].practices[0].phones[0].number} Address: ${response.data[i].practices[0].visit_address.street} ${response.data[i].practices[0].visit_address.city} ${response.data[i].practices[0].visit_address.state}, ${response.data[i].practices[0].visit_address.zip} Accepting new Patents: ${response.data[i].practices[0].accepts_new_patients}`);
         node.appendChild(textnode);
         document.getElementById("outputInfo").appendChild(node);
       }
