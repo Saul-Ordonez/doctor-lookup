@@ -32,8 +32,13 @@ import './styles.css';
         })();
 
         const getElements = function(response) {
-          console.log(response.data[0].profile.first_name);
           $('#firstName').text(response.data[0].profile.first_name);
+          $('#lastName').text(response.data[0].profile.last_name);
+          $('#title').text(response.data[0].profile.title);
+          $('#address').text(response.data[0].practices[0].visit_address.street + response.data[0].practices[0].visit_address.city + response.data[0].practices[0].visit_address.state + ", " + response.data[0].practices[0].visit_address.zip);
+          $('#phoneNumber').text(response.data[0].practices[0].phones[0].number);
+          $('#website').text(response.data[0].profile.first_name);
+          $('#available').text(response.data[0].practices[0].accepts_new_patients);
 
 
 
