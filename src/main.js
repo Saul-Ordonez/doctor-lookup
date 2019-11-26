@@ -1,4 +1,5 @@
 import { BetterDoctorAPI } from  './backend.js';
+import { BetterDoctorSymptomAPI } from './backend.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +19,8 @@ $(document).ready(function() {
 
     const getElements = function(response) {
       let dataLength = response.data.length;
-      $("#outputInfo").text(" ");
+      $("#outputDoctorSearch").text(" ");
+      $("#outputSymptomSearch").text(" ");
 
       for(let i = 0;i < dataLength; i++){
         let node = document.createElement("LI");
@@ -28,15 +30,5 @@ $(document).ready(function() {
       }
     };
 
-    // const getElements = function(response) {
-      //   $('#firstName').text(response.data[0].profile.first_name);
-      //   $('#lastName').text(response.data[0].profile.last_name);
-      //   $('#title').text(response.data[0].profile.title);
-      //   $('#address').text(response.data[0].practices[0].visit_address.street + " " +  response.data[0].practices[0].visit_address.city + " " + response.data[0].practices[0].visit_address.state + ", " + response.data[0].practices[0].visit_address.zip);
-      //   $('#phoneNumber').text(response.data[0].practices[0].phones[0].number);
-      //   $('#website').text(response.data[0].profile.first_name);
-      //   $('#available').text(response.data[0].practices[0].accepts_new_patients);
-      // };
-
-    });
   });
+});
