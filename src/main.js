@@ -10,6 +10,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     const doctorName = $('#nameInput').val();
+    const symptom = $('#symptomInput').val();
 
     (async () => {
       let betterDoctorAPI = new BetterDoctorAPI();
@@ -17,10 +18,20 @@ $(document).ready(function() {
       getElements(response);
     })();
 
+    (async () => {
+      let betterDoctorSymptomAPI = new BetterDoctorSymptomAPI();
+      let response2 = await betterDoctorSymptomAPI.getBetterDoctorAPI(symptom);
+      getElements2(response2);
+    })();
+
     const getElements = function(response) {
       let dataLength = response.data.length;
       $("#outputDoctorSearch").text(" ");
       $("#outputSymptomSearch").text(" ");
+
+      if (dataLength === 0) {
+        $("")
+      }
 
       for(let i = 0;i < dataLength; i++){
         let node = document.createElement("LI");
