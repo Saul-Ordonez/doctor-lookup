@@ -13,6 +13,10 @@ This webpage application will allow users to search a database for doctors in th
 Behavior | Input | Output
 --- | --- | ---
 **User enters value that is not within the parameters of the search will get error message** | User enters '45' in doctor search field | "Please enter a correct name" is displayed
+**User searches for doctor in their area but none are found** | User enters 'Joe Schmoe' in the doctor search field | "I'm sorry there are no doctors with that name in your area" is displayed
+**User searches for symptom in the the symptom search field but no doctor results are found** | User enters 'multiple sclerosis' in the symptom search field | "I'm sorry there are no doctors that can treat that in your area" is displayed
+**User searches for a doctor** | User enters "Jon Smith" in the doctor search field | A list of the top 10 doctors most closely related to searched name is populated. Information including name, address, phone, and availability are displayed for each
+**User searches for a symptom a doctor could treat** | User enters "headache" in the symptom search field | A list of the top 10 doctors most closely related to searched symptom is populated. Information including name, address, phone, and availability are displayed for each
 
 ## Setup/Installation Requirements
 
@@ -24,7 +28,7 @@ Behavior | Input | Output
 
 * internet service required when cloning project repository onto local computer.
 
-**You will need to have an API key from https://developer.betterdoctor.com/ in order to use the database.**
+**You will need to have an API key from https://developer.betterdoctor.com/ in order to use the database**
 
 
 ## Known Bugs
@@ -35,7 +39,7 @@ There are no known bugs at this time but may be subject to change.
 
 If there are any issues or bugs the developer may not be aware of please contact at:
 
-#### * saul_ordonez@gmail.com
+#### * sauleordonez@gmail.com
 #### * (503)-382-9034
 
 ## Technologies Used
